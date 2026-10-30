@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://t-dashboard.local/schemas/step.schema.json",
+  "title": "TestStep",
+  "type": "object",
+  "required": ["id", "action"],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "action": {
+      "type": "string",
+      "enum": [
+        "navigate",
+        "click",
+        "fill",
+        "select",
+        "hover",
+        "press",
+        "wait",
+        "assert_visible",
+        "assert_text",
+        "assert_url",
+        "assert_attribute",
+        "custom"
+      ]
+    },
+    "name": { "type": "string" },
+    "url": { "type": "string" },
+    "selector": { "type": "string" },
+    "selectorType": {
+      "type": "string",
+      "enum": ["css", "role", "text", "testid", "placeholder", "label"]
+    },
+    "value": { "type": "string" },
+    "key": { "type": "string" },
+    "timeoutMs": { "type": "integer", "minimum": 0 },
+    "attribute": { "type": "string" },
+    "code": { "type": "string" }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "action": { "const": "navigate" } } },
+      "then": { "required": ["url"] }
+    },
+    {
+      "if": {
+        "properties": {
+          "action": {
+            "enum": ["click", "fill", "select", "hover", "assert_visible", "assert_text", "assert_attribute"]
+          }
+        }
+      },
+      "then": { "required": ["selector"] }
+    },
+    {
+      "if": { "properties": { "action": { "enum": ["fill", "select", "assert_text", "assert_attribute"] } } },
+      "then": { "required": ["value"] }
+    },
+    {
+      "if": { "properties": { "action": { "const": "press" } } },
+      "then": { "required": ["key"] }
+    },
+    {
+      "if": { "properties": { "action": { "const": "assert_attribute" } } },
+      "then": { "required": ["attribute"] }
+    }
+  ]
+}

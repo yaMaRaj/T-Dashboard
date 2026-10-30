@@ -1,0 +1,20 @@
+{
+  "mcpServers": {
+    "mcp-playwright": {
+      "command": "PLACEHOLDER_REPO/mcp-playwright/.venv/Scripts/python.exe",
+      "args": ["-m", "mcp_playwright"],
+      "cwd": "PLACEHOLDER_REPO/mcp-playwright",
+      "env": {
+        "TDASHBOARD_API": "http://127.0.0.1:8000"
+      }
+    },
+    "mcp-allure": {
+      "command": "PLACEHOLDER_REPO/mcp-allure/.venv/Scripts/python.exe",
+      "args": ["-m", "mcp_allure"],
+      "cwd": "PLACEHOLDER_REPO/mcp-allure",
+      "env": {
+        "TDASHBOARD_API": "http://127.0.0.1:8000"
+      }
+    }
+  }
+}

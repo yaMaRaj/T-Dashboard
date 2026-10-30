@@ -1,0 +1,8 @@
+{
+  "name": "tdashboard-allure-cli",
+  "private": true,
+  "description": "Pinned Allure CLI for T-Dashboard (Java 8+ compatible)",
+  "dependencies": {
+    "allure-commandline": "2.25.0"
+  }
+}

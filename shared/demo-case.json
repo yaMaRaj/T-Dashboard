@@ -1,0 +1,41 @@
+{
+  "name": "官网 Get started 导航",
+  "tags": ["demo", "smoke"],
+  "steps": [
+    {
+      "id": "s1",
+      "action": "navigate",
+      "name": "打开 Playwright 官网",
+      "url": "https://playwright.dev/",
+      "selectorType": "css"
+    },
+    {
+      "id": "s2",
+      "action": "assert_visible",
+      "name": "标题可见",
+      "selector": "h1",
+      "selectorType": "css"
+    },
+    {
+      "id": "s3",
+      "action": "assert_text",
+      "name": "标题包含 Playwright",
+      "selector": "h1",
+      "selectorType": "css",
+      "value": "Playwright"
+    },
+    {
+      "id": "s4",
+      "action": "click",
+      "name": "点击 Get started",
+      "selector": "Get started",
+      "selectorType": "text"
+    },
+    {
+      "id": "s5",
+      "action": "assert_url",
+      "name": "进入文档页",
+      "value": "intro"
+    }
+  ]
+}

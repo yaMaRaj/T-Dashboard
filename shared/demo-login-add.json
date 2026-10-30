@@ -1,0 +1,71 @@
+{
+  "project": "Demo · 登录后添加",
+  "base_url": "https://www.saucedemo.com",
+  "credentials": {
+    "username": "standard_user",
+    "password": "secret_sauce"
+  },
+  "case": {
+    "name": "登录后添加背包到购物车",
+    "tags": ["demo", "login", "add"],
+    "steps": [
+      {
+        "id": "a1",
+        "action": "navigate",
+        "name": "打开登录页",
+        "url": "https://www.saucedemo.com/"
+      },
+      {
+        "id": "a2",
+        "action": "fill",
+        "name": "输入用户名",
+        "selectorType": "css",
+        "selector": "#user-name",
+        "value": "standard_user"
+      },
+      {
+        "id": "a3",
+        "action": "fill",
+        "name": "输入密码",
+        "selectorType": "css",
+        "selector": "#password",
+        "value": "secret_sauce"
+      },
+      {
+        "id": "a4",
+        "action": "click",
+        "name": "点击登录",
+        "selectorType": "css",
+        "selector": "#login-button"
+      },
+      {
+        "id": "a5",
+        "action": "assert_url",
+        "name": "已进入库存页",
+        "value": "inventory"
+      },
+      {
+        "id": "a6",
+        "action": "click",
+        "name": "添加背包到购物车",
+        "selectorType": "css",
+        "selector": "[data-test=\"add-to-cart-sauce-labs-backpack\"]"
+      },
+      {
+        "id": "a7",
+        "action": "click",
+        "name": "打开购物车",
+        "selectorType": "css",
+        "selector": "[data-test=\"shopping-cart-link\"]"
+      },
+      {
+        "id": "a8",
+        "action": "assert_text",
+        "name": "购物车含背包",
+        "selectorType": "css",
+        "selector": ".inventory_item_name",
+        "value": "Sauce Labs Backpack"
+      }
+    ]
+  }
+}
